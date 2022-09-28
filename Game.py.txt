@@ -1,0 +1,69 @@
+app.background='skyBlue'
+
+
+Label('Can Game',200,50,size=30)
+rulesText1=Label('Drag the Crosshair',320,150,size=10)
+rulesText2=Label('Over the can you pick',320,170,size=10)
+rulesText3=Label('If the green dot is over',320,190,size=10)
+rulesText4=Label('The can you pick, you win!',320,210,size=10)
+
+def can(x,y):
+    Rect(x,y,30,50,fill='salmon')
+
+
+
+can(0,250)
+can(50,250)
+can(250,250)
+can(300,250)
+can(350,250)
+can(100,250)
+can(150,250)
+can(200,250)
+
+Rect(0,300,400,100,fill='saddleBrown')
+scope=Circle(200,200,60,fill=None,border='black')
+scope2=Circle(200,200,30,fill=None,border='black')
+sight1=Line(200,140,200,170)
+sight2=Line(200,230,200,260)
+redDot=Circle(200,200,10,fill='red')
+
+
+def onMousePress(x,y):
+    scope.centerX=x
+    scope.centerY=y
+    sight1.centerX=x
+    sight1.centerY=y-45
+    sight2.centerX=x
+    sight2.centerY=y+45
+    scope2.centerX=x
+    scope2.centerY=y
+    redDot.centerX=x
+    redDot.centerY=y
+    win.visible=False
+    rulesText1.visible=False
+    rulesText2.visible=False
+    rulesText3.visible=False
+    rulesText4.visible=False
+
+def onMouseDrag(x,y):
+    scope.centerX=x
+    scope.centerY=y
+    sight1.centerX=x
+    sight1.centerY=y-45
+    sight2.centerX=x
+    sight2.centerY=y+45
+    scope2.centerX=x
+    scope2.centerY=y
+    redDot.centerX=x
+    redDot.centerY=y
+    
+
+# Change can position
+
+win=Circle(115,240,10,fill='green')
+win.visible=False
+
+def onMouseRelease(x,y):
+    win.visible=True
+    
